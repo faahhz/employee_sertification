@@ -1,0 +1,51 @@
+<%- include('../header') %>
+
+<br> <br>
+<div class="container text-center col-md-6 ">
+        <a href="/employeeSertifications/add" class="btn btn-danger ">
+            Add Employee Sertification
+        </a>
+    
+    
+</div>
+<br> <br>
+
+<div class="container col-md-6">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Job</th>
+                <th scope="col">Age</th>
+                <th scope="col">Email</th>
+                <th scope="col">Sertification</th>
+                <th scope="col">Expired</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <% ESc.forEach(esc=>{ %>
+                <tr>
+                    <th scope="row"><%= esc.employee.id %></th>
+                    <td>  <%= esc.employee.name %>  </td>
+                    <td> <%= esc.employee.job %> </td>
+                    <td><%= esc.employee.age %> </td>
+                    <td> <%= esc.employee.email %> </td>
+                    <td> <%= esc.sertification.name %> </td>
+                    <td> <%= esc.sertification.expired %> </td>
+                    <td>
+                        <a class="btn btn-danger" href="/employeeSertifications/delete/<%= esc.id %>">Delete</a>
+                        <a class="btn btn-secondary" href="/employeeSertifications/update/<%= esc.id %>">Update</a>
+                    </td>
+                </tr>
+                <% }) %>
+
+        </tbody>
+
+    </table>
+</div>
+
+<%- include('../footer') %>

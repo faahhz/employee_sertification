@@ -1,0 +1,47 @@
+<%- include('../header') %>
+
+<br> <br>
+<div class="container text-center col-md-6 ">
+        <a href="/employees/add" class="btn btn-danger ">
+            Add Employee
+        </a>
+    
+    
+</div>
+<br> <br>
+
+<div class="container col-md-6">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Job</th>
+                <th scope="col">Age</th>
+                <th scope="col">Email</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <% employees.forEach(employee=>{ %>
+                <tr>
+                    <th scope="row"><%= employee.id %></th>
+                    <td>  <%= employee.name %>  </td>
+                    <td> <%= employee.job %> </td>
+                    <td><%= employee.age %> </td>
+                    <td> <%= employee.email %> </td>
+                    <td>
+                        <a class="btn btn-danger" href="/employees/delete/<%= employee.id %>">Delete</a>
+                        <a class="btn btn-secondary" href="/employees/update/<%= employee.id %>">Update</a>
+                    </td>
+                </tr>
+                <% }) %>
+
+        </tbody>
+
+    </table>
+</div>
+
+<%- include('../footer') %>

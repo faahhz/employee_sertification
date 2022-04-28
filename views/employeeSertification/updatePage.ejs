@@ -1,0 +1,27 @@
+<%- include('../header') %>
+<div class="text-center">
+    <h2>Update Sertification</h2>
+</div> <br> <br>
+
+<div class="d-flex justify-content-center col-md-12">
+    <form action="/sertifications/update/<%= sertifications.id %>" method="POST">
+        <div class="form-group row mb-3">
+            <label for="" class="col-sm-2 col-form-label">Type </label>
+            <div class="col-sm-10">
+                <input id="type" name="type" type="text" class="form-control" value="<%= sertifications.type %>" > </input>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="" class="col-sm-2 col-form-label">Expired </label>
+            <div class="col-sm-10">
+                <input id="expired" name="expired" type="date" class="form-control" value="<%= sertifications.expired %>" > </input>
+            </div>
+        </div>
+        
+        <div class="mb-7 d-flex justify-content-end">
+            <button id="submit" type="submit" class="btn btn-danger col-sm-5 ">Submit</button>
+        </div>
+    </form>
+</div>
+
+<%- include('../footer') %>

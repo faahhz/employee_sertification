@@ -1,0 +1,60 @@
+<%- include('../header') %>
+
+<br> <br>
+<div class="container text-center col-md-6 ">
+        <a href="/sertifications/add" class="btn btn-danger ">
+            Add Sertification
+        </a>
+    
+    
+</div>
+<br> <br>
+
+<div class="container col-md-5 ">
+    <table class="table ">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">expired</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <% sertifications.forEach(sertification=>{ %>
+                <tr>
+                    <th scope="row"><%= sertification.id %></th>
+                    <td>
+                        <div class="row">
+                          <div class="col-5">
+                            <img
+                              class="img-fluid " 
+                              src="<%= sertification.image %>"
+                              alt=""
+                            /> 
+                            <div class="text-center">
+                                <%= sertification.name %>
+                            </div>
+                          </div>
+
+                          
+                        </div>
+                      </td>
+                      <td> <%= sertification.type %> </td>
+                    <td> <%= sertification.expired %> </td>
+                    <td>
+                        <a class="btn btn-danger" href="/sertifications/delete/<%= sertification.id %>">Delete</a>
+                        <a class="btn btn-secondary" href="/sertifications/update/<%= sertification.id %>">Update</a>
+                    </td>
+                </tr>
+                <% }) %>
+
+        </tbody>
+
+    </table>
+</div>
+
+<%- include('../footer') %>
